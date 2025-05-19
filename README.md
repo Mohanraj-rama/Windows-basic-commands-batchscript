@@ -1,16 +1,6 @@
-```
-NAME : MOHANRAJ R
-DEPT : AI&ds
-REG NO : 212224230169
-
-```
-
-
-
-
 # Windows-basic-commands-batchscript
 Ex08-Windows-basic-commands-batchscript
-
+ 
 # AIM:
 To execute Windows basic commands and batch scripting
 
@@ -37,203 +27,91 @@ Execute the necessary commands/batch file for the desired output.
 ## Exercise 1: Basic Directory and File Operations
 Create a directory named "MyLab" on the desktop.
 
+
+## COMMAND AND OUTPUT
+
 ```
 mkdir %userprofile%\Desktop\MyLab
 ```
-![alt text](image.png)
+![1_mkdir](https://github.com/user-attachments/assets/b2c97dd3-0863-4481-8a62-027ad75b56f0)
 
-```
-mkdir my-folder
-
-```
-
-![alt text](<img/Screenshot 2025-05-13 233805.png>)
-
-```
-rmdir my-folder
-
-```
-![alt text](<img/Screenshot 2025-05-13 233831.png>)
-
-## COMMAND AND OUTPUT
 
 Change to the "MyLab" directory and create an empty text file named "MyFile.txt" inside it.
-```
-mkdir %userprofile%\Desktop\MyLab
-```
-![alt text](image-1.png)
 
-```
-COPY CON Rose.txt
-A clock in a office can never get stolen
-Too many employees watch it all the time
-
-
-```
-![alt text](<img/Screenshot 2025-05-13 234028.png>)
-
-```
-dir Rose.txt
-
-```
-![alt text](<img/Screenshot 2025-05-13 234108.png>)
-
-```
-echo hello world > hello.txt
-
-```
-![alt text](<img/Screenshot 2025-05-13 234237.png>)
-
-```
-type hello.txt
-copy hello.txt hello1.txt
-del hello1.txt
-
-```
-![alt text](<img/Screenshot 2025-05-13 234237.png>)
 
 ## COMMAND AND OUTPUT
 
-List the contents of the "MyLab" directory.
 ```
 cd %userprofile%\Desktop\MyLab
 ```
-![alt text](image-2.png)
+![2_cd](https://github.com/user-attachments/assets/4749e48a-d6c2-465c-b66c-467b535e741c)
 
-```
+
 type nul > MyFile.txt
-```
-![alt text](image-3.png)
-```
-assoc | more
+![3_myfile](https://github.com/user-attachments/assets/264f09a9-9ab1-4319-8ffb-087580360d88)
 
-```
-![alt text](<img/Screenshot 2025-05-13 234309.png>)
 
-```
-fc hello.txt Rose.txt
+List the contents of the "MyLab" directory.
 
-```
-![alt text](<img/Screenshot 2025-05-13 234408.png>)
 
 ## COMMAND AND OUTPUT
 
-Copy "MyFile.txt" to a new folder named "Backup" on the desktop.
 ```
 dir %userprofile%\Desktop\MyLab
 ```
-![alt text](image-4.png)
+![4_dir](https://github.com/user-attachments/assets/8a095fc7-fb1e-4b82-9dff-46ed48ac79c9)
+
+Copy "MyFile.txt" to a new folder named "Backup" on the desktop.
 
 ## COMMAND AND OUTPUT
 
-Move the "MyLab" directory to the "Documents" folder.
 ```
 mkdir %userprofile%\Desktop\Backup
 ```
+![5_backup](https://github.com/user-attachments/assets/40881217-36a6-4c3b-9a98-084c1d4f06b7)
 
-![alt text](image-5.png)
-
-```
 copy MyFile.txt %userprofile%\Desktop\Backup
-```
-![alt text](image-6.png)
+
+![6_copy](https://github.com/user-attachments/assets/15c04a42-8b5e-4005-a4d6-eefff8a529c2)
+
+Move the "MyLab" directory to the "Documents" folder.
 
 ## COMMAND AND OUTPUT
+
 ```
 mkdir %userprofile%\Desktop\Documents
 ```
-![alt text](image-7.png)
+move MyLab Documents
+
+![9_modified batch1](https://github.com/user-attachments/assets/6db49bc8-0724-45f1-a9f3-ff9ef8d5ffbf)
 
 ## Exercise 2: Advanced Batch Scripting
 Create a batch script named "BackupScript.bat" that creates a backup of files with the ".docx" extension from the "Documents" folder to a new folder named "DocBackup" on the desktop.
 
+## COMMAND
 
-
-
-
-
+```
+@echo off
+mkdir %userprofile%\Desktop\DocBackup
+copy %userprofile%\Documents\*.docx %userprofile%\Desktop\DocBackup
+echo Backup completed successfully!
+```
 
 ## OUTPUT
 
-## 1.BAT:
+![10_batch1](https://github.com/user-attachments/assets/af5e3830-2b8c-465d-9ccb-b6c15b159502)
+
+## COMMAND
 ```
-@echo off
-set name=John
-echo Hello, %name%!
-pause
-
-
+  @echo off
+  mkdir %userprofile%\Desktop\DocBackup
+  copy %userprofile%\Documents\*.docx %userprofile%\Desktop\DocBackup
+  del %userprofile%\Documents\*.docx
+  echo Backup and deletion completed successfully!
 ```
-![alt text](<img/Screenshot 2025-05-13 234648.png>)
+## OUTPUT
 
-## 2.BAT
-```
-@echo off
-:main
-set /p number=Enter a number: 
-set /a remainder=%number% %% 2
-if %remainder%==1 (
-    echo %number% is an odd number.
-) else (
-    echo %number% is not an odd number.
-)
-:choice
-set /p continue=Do you want to check another number? (Y/N): 
-if /i "%continue%"=="Y" goto main
-if /i "%continue%"=="N" goto end
-echo Invalid choice, please enter Y or N.
-goto choice
-:end
-echo Thank you for using the odd number checker!
-pause
-
-```
-![alt text](<img/Screenshot 2025-05-13 234734.png>)
-
-## 3.BAT
-
-```
-@echo off
-for %%i in (1 2 3 4 5) do (
-    echo Number: %%i
-)
-pause
-
-
-```
-![alt text](<img/Screenshot 2025-05-13 234806.png>)
-
-## 4.BAT
-
-```
-@echo off
-echo Reading lines from sample.txt...
-for /f "tokens=*" %%i in (sample.txt) do (
-    echo Fruit: %%i
-)
-pause
-
-```
-![alt text](<img/Screenshot 2025-05-13 234827.png>)
-
-## 5.BAT
-
-```
-@echo off
-echo Displaying Even or Odd for numbers 1 to 10
-for /l %%i in (1,1,10) do (
-    set /a rem=%%i %% 2
-    if %%i %% 2 == 0 (
-        echo %%i is Even
-    ) else (
-        echo %%i is Odd
-    )
-)
-pause
-
-```
-![alt text](<img/Screenshot 2025-05-13 234928.png>)
-
+![11_modified batch1](https://github.com/user-attachments/assets/db602c4e-116e-4c0c-84d3-9e750b2d6ebe)
 
 # RESULT:
 The commands/batch files are executed successfully.
